@@ -1,0 +1,8 @@
+Our project will allow the user to figure out the current weather in a given location. The location
+can either be searched or manually clicked, on the map. The admin app will include the cities/locations
+that have been searched. We are using the Google Maps API and the OpenWeatherMap API.
+
+In its current state the user can click on, or search, a location on the map and they will be centered
+onto that location. Markers are placed that display the current temperature and weather in the given location.
+We are going to add the ability to see the future forecasted weather of the last clicked location in a side
+bar location.

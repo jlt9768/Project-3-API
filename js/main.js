@@ -1,5 +1,6 @@
 	let map;
 	let infowindow;
+	let markers = [];
     function initMap() {
 		let mapOptions = {
 			center: {lat: 43.083848, lng: -77.6799},
@@ -30,7 +31,10 @@
         });
 		marker.addListener('click', function(){
 			infowindow.open(map, marker);
+			app.city = title;
 		});
+		infowindow.open(map, marker);
+		markers.push(marker);
 	}
 	function makeInfoWindow(position, msg){
 	
@@ -46,11 +50,11 @@
 			title: "Weather App",
 			json: null,
 			city: "Rochester",
-			lat: -92.46,
-			lon: 44.02
+			lat: 43.15,
+			lon: -77.61
 		},
 		created(){
-			this.search();
+			this.searchByClick();
 		},
 		methods:{
 			//Searches the OpenWeatherMap api for the city that first matches the name that was input
@@ -104,7 +108,7 @@
 						"Weather: " + json.weather[0].main
 					+
 					'</p>'
-					)
+					);
 				})
 			},
 			setZoom : function(level){

@@ -1,0 +1,1 @@
+-Could add functionality to remove all placed markers
