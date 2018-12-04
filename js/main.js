@@ -1,6 +1,7 @@
 	let map;
 	let infowindow;
 	let markers = [];
+
     function initMap() {
 		let mapOptions = {
 			center: {lat: 43.083848, lng: -77.6799},
@@ -26,21 +27,19 @@
 		let position = {lat:latitude, lng:longitude};
 		let marker = new google.maps.Marker({position: position, map: map, title: title} );
 		
-		let infowindow = new google.maps.InfoWindow({
+		marker.infowindow = new google.maps.InfoWindow({
           content: contentText
         });
 		marker.addListener('click', function(){
-			infowindow.open(map, marker);
+			marker.infowindow.open(map, marker);
 			app.city = title;
 		});
-		infowindow.open(map, marker);
+		marker.infowindow.open(map, marker);
 		markers.push(marker);
 	}
 	function makeInfoWindow(position, msg){
-	
 		if(infowindow) infowindow.close();		
 		infowindow = new google.maps.InfoWindow({map: map, position: position, content: "<b>" + msg + "<b>" });
-	
 	}
 	
 	
@@ -73,7 +72,7 @@
 					map.setCenter(new google.maps.LatLng(json.coord.lat, json.coord.lon));
 					addMarker(json.coord.lat, json.coord.lon, this.city,
 					
-					//Content that will be displayed, currently just in the created marker
+					// Content that will be displayed, currently just in the created marker
 					'<p>'
 					+
 						'<h2>' + this.city + '</h2>' + '<br\>' +
@@ -100,7 +99,7 @@
 					map.setCenter(new google.maps.LatLng(json.coord.lat, json.coord.lon));
 					this.city = json.name;
 					addMarker(json.coord.lat, json.coord.lon, this.city,
-					//Content that will be displayed, currently just in the created marker
+					// Content that will be displayed, currently just in the created marker
 					'<p>'
 					+
 						'<h2>' + this.city + '</h2>' + '<br\>' +
@@ -111,9 +110,22 @@
 					);
 				})
 			},
+
 			setZoom : function(level){
 				map.setZoom(level);
 				console.log(level);
+			},
+			
+			expandAllPins : function(){
+				for (var i = 0; i < markers.length; i++) {
+					markers[i].infowindow.open(map, markers[i]);
+				}
+			},
+			
+			collapseAllPins : function(){
+				for (var i = 0; i < markers.length; i++) {
+					markers[i].infowindow.close();
+				}
 			}
 		} // end methods
 	});

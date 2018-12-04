@@ -1,0 +1,41 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+#map {
+    position: absolute;  
+    right: 0;  
+    top: 0;
+    width: 80%;
+    height: 100%;
+}
+#app{
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    background-color: #F7F8F9;
+}
+button, input{
+    color: black;
+    height: 30px;
+    width: 150px;
+    z-index: 10;
+    font-size: 12px;
+}
+#searchBar{
+    padding-bottom: .5em;
+}
+#searchBar button{
+    width: 20%;
+}
+
+#searchBar input{
+    width: 70%;
+}
+#forecastTitle{
+    padding-top: .5em;
+}
+.subTitle{
+    padding-top: .5em;
+}

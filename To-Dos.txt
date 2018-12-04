@@ -1,0 +1,2 @@
+-Add functionality to remove all placed markers
+-Weather Forecasting
