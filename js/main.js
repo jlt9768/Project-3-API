@@ -126,6 +126,12 @@
 				for (var i = 0; i < markers.length; i++) {
 					markers[i].infowindow.close();
 				}
+			},
+			removeAllPins : function(){
+				for (var i = 0; i < markers.length; i++) {
+					markers[i].setMap(null);
+				}
+				markers = [];
 			}
 		} // end methods
 	});
