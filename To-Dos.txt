@@ -1,6 +1,6 @@
--Save pins
+-Save pins - Beau
 -Weather Forecasting, ES6 class for individual days - James
--Admin Page
--
+-Admin Page - Beau
+
 Done:
 -Add functionality to remove all placed markers - Done
