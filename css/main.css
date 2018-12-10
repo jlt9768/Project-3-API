@@ -35,7 +35,17 @@ button, input{
 }
 #forecastTitle{
     padding-top: .5em;
+	margin-bottom:0;
 }
 .subTitle{
     padding-top: .5em;
+}
+#forecastItems{
+	position: relative;
+	height: 30.5vw;
+	overflow-y: scroll;
+	font-size: .8em;
+}
+#forecastItems h5{
+	margin: 0;
 }

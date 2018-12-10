@@ -13,12 +13,12 @@
 	<script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
 	<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
 	
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLXCofLtfh2WElEIIpuIqIHicfKpsWBHg&callback=initMap"
-    async defer></script>
 	
-	<body>	
-		<div id="map"></div>
-		<div id="app">
+	
+	<body>
+		<div id="app">	
+			<div id="map"></div>
+		
 			<h2>Weather Map</h2>
 			<h5 class="subTitle">Location Search:</h5>
 			<div id="searchBar">
@@ -34,9 +34,25 @@
 			<button id="collapsePinsButton" v-on:click="collapseAllPins">Collapse All Pins</button>
 			<button id="expandPinsButton" v-on:click="expandAllPins">Expand All Pins</button>
 			<button id="removePinsButton" v-on:click="removeAllPins">Remove All Pins</button>
-			<h3 id="forecastTitle">Weather Forecast:</h3>
+			<button id="savePinsButton" v-on:click="">Save Pins Locally</button>
+			<h3 id="forecastTitle">Weather Forecast:
+				<select id="limit" v-model="limit" @change="forecast">
+					<option value="5" >5</option>
+					<option value="10" selected>10</option>
+					<option value="20">20</option>
+					<option value="40">40</option>
+				</select>
+			</h3>
+			
+			<div id="forecastItems">
+				<forecast-item v-for="forecast in forecasts" v-bind:f="forecast"></forecast-item>
+			</div>
 		</div>
 	</body>
   
-	<script src="js/main.js"></script> 
+	<script src="js/main.js"></script>
+	<script src="js/class.js"></script> 
+	<script src="js/component.js"></script> 
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLXCofLtfh2WElEIIpuIqIHicfKpsWBHg&callback=app.initMap"
+    async defer></script>
 </html>
