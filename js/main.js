@@ -60,16 +60,22 @@
 			},
 			//Searches the OpenWeatherMap api for the city that first matches the name that was input
 			search(){
-				//if (! this.term.trim()) return;
+				//console.log(this.city);
+				if (this.city == "") return;
 				fetch("https://api.openweathermap.org/data/2.5/weather?q=" + this.city + "&units=imperial&appid=575bcc8891dfe93ad254039711d54a69")
 				.then(response => {
 					if(!response.ok){
-						throw Error(`ERROR: ${response.statusText}`);
+						alert("No city with specified name found");
+						return null;
 					}
 					return response.json();
 				})
-				.then(json => {	
-					this.build(json);
+				.then(json => {
+					
+					if(json != null){
+						this.build(json);
+					}
+
 				})
 			}, // end search
 			

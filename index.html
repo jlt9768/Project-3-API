@@ -26,15 +26,15 @@
 				<button id="search" v-on:click="search">Search</button>
 			</div>
 			<h5 class="subTitle">Zoom Levels:</h5>
-			<button id="worldZoomButton" v-on:click="setZoom(1)">World Zoom (1)</button>
-			<button id="defaultZoomButton" v-on:click="setZoom(16)">Default Zoom (16)</button>
-			<button id="isometricZoomButton" v-on:click="setZoom(18)">Isometric Zoom (18)</button>
-			<button id="buildingZoomButton" v-on:click="setZoom(20)">Building Zoom (20)</button>
+			<button id="worldZoomButton" v-on:click="setZoom(1)">World Zoom</button>
+			<button id="defaultZoomButton" v-on:click="setZoom(16)">Default Zoom</button>
+			<button id="isometricZoomButton" v-on:click="setZoom(18)">Isometric Zoom</button>
+			<button id="buildingZoomButton" v-on:click="setZoom(20)">Building Zoom</button>
 			<h5 class="subTitle">Pin Management:</h5>
 			<button id="collapsePinsButton" v-on:click="collapseAllPins">Collapse All Pins</button>
 			<button id="expandPinsButton" v-on:click="expandAllPins">Expand All Pins</button>
 			<button id="removePinsButton" v-on:click="removeAllPins">Remove All Pins</button>
-			<button id="savePinsButton" v-on:click="">Save Pins Locally</button>
+			<button id="savePinsButton" v-on:click="">Save Pins</button>
 			<h3 id="forecastTitle">Weather Forecast:
 				<select id="limit" v-model="limit" @change="forecast">
 					<option value="5" >5</option>
