@@ -31,7 +31,6 @@
 				this.map.setTilt(45);
 				//Event listner to see when the user clicks on the map itself
 				google.maps.event.addListener(this.map, 'click', function(e) {
-					console.log(e.latLng.lat() + ", " + e.latLng.lng());
 					app.lat = e.latLng.lat();
 					app.lon = e.latLng.lng();
 					app.searchByClick();
@@ -60,7 +59,6 @@
 			},
 			//Searches the OpenWeatherMap api for the city that first matches the name that was input
 			search(){
-				//console.log(this.city);
 				if (this.city == "") return;
 				fetch("https://api.openweathermap.org/data/2.5/weather?q=" + this.city + "&units=imperial&appid=575bcc8891dfe93ad254039711d54a69")
 				.then(response => {
@@ -103,7 +101,6 @@
 					return response.json();
 				})
 				.then(json => {	
-					console.log(json);
 					this.forecasts=[];
 					for(let i = 0; i < this.limit;i++){
 						this.forecasts.push(new Forecast(json.list[i].dt,json.list[i].main,json.list[i].weather));
@@ -130,7 +127,6 @@
 			},
 			setZoom : function(level){
 				app.map.setZoom(level);
-				console.log(level);
 			},
 			
 			expandAllPins : function(){
