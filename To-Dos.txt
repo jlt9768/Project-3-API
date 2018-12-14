@@ -1,4 +1,3 @@
--Generate map based on saved pins - Beau
 -Admin Page - Beau
 
 Done:
@@ -6,3 +5,4 @@ Done:
 -Weather Forecasting, ES6 class for individual days - James
 -Somewhat more responsive - James
 -Save pins - Beau
+-Generate map based on saved pins - Beau

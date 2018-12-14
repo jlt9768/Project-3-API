@@ -35,6 +35,23 @@
 				}else{
 					// If a user ID does exist generate map pins using the matching data for this user on firebase
 					userID = localStorage.getItem("weather-map-user-id");
+
+					firebase.database().ref(userID).once('value').then(function(snapshot) {
+						let pinLocations = snapshot.val();
+
+						// Check whether any pins are currently saved in firebase
+						if (pinLocations != null){
+							// If so generate markers using firbase pin data
+							for (var i = 0; i < Object.keys(pinLocations.locations).length; i++) {
+								app.lat = pinLocations.locations[i].latitude;
+								app.lon = pinLocations.locations[i].longitude;
+								app.searchByClick();
+							}
+						}else{
+							// If not just generate the default pin
+							app.searchByClick();
+						}
+					});
 				}
 
 				//Event listner to see when the user clicks on the map itself
@@ -43,7 +60,6 @@
 					app.lon = e.latLng.lng();
 					app.searchByClick();
 				});
-				this.searchByClick();
 			},
 
 			//Adds a marker at the given city
