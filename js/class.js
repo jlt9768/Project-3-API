@@ -8,5 +8,12 @@ class Forecast{
 		this.weather = weather[0].description;
 		this.weather = this.weather.charAt(0).toUpperCase() + this.weather.slice(1);
 	}
-	
+}
+
+class PinLocation{
+	constructor(name, latitude, longitude){
+		this.name = name;
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}
 }

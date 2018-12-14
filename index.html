@@ -7,10 +7,22 @@
 		<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
 		<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+		<script>
+			// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyC-vdML3SsiRpQkiLebV5SFJy2GnWxrz54",
+				authDomain: "weather-map-ede48.firebaseapp.com",
+				databaseURL: "https://weather-map-ede48.firebaseio.com",
+				projectId: "weather-map-ede48",
+				storageBucket: "",
+				messagingSenderId: "108524369837"
+			};
+			firebase.initializeApp(config);
+		</script>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
 		<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
-		
 	</head>	
 	
 	<body>
@@ -32,7 +44,7 @@
 			<button id="collapsePinsButton" v-on:click="collapseAllPins">Collapse All Pins</button>
 			<button id="expandPinsButton" v-on:click="expandAllPins">Expand All Pins</button>
 			<button id="removePinsButton" v-on:click="removeAllPins">Remove All Pins</button>
-			<button id="savePinsButton" v-on:click="">Save Pins</button>
+			<button id="savePinsButton" v-on:click="saveAllPins">Save Pins</button>
 			<h3 id="forecastTitle">Weather Forecast:
 				<select id="limit" v-model="limit" @change="forecast">
 					<option value="5" >5</option>
@@ -51,6 +63,7 @@
 	<script src="js/main.js"></script>
 	<script src="js/class.js"></script> 
 	<script src="js/component.js"></script> 
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLXCofLtfh2WElEIIpuIqIHicfKpsWBHg&callback=app.initMap"
+	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLXCofLtfh2WElEIIpuIqIHicfKpsWBHg&callback=app.initMap" -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_6Rx5ld_OdQzx3g6tCVSzCNfSqfx7jn8&callback=app.initMap"
 	async defer></script>
 </html>
