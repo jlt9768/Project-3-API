@@ -147,7 +147,7 @@ var app = new Vue({
 				+
 					'<h2>' + this.city + '</h2>' + '<br\>' +
 					"Temperature: " + json.main.temp + "°F" + '<br\>' +
-					"Weather: " + weather
+					"Weather: " + weather + '<br\>'
 				+
 				'</p>'
 				);

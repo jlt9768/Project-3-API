@@ -59,3 +59,7 @@ button, input{
 		font-size: .8em;
 	}
 }
+#marker{
+	font-size:10px;
+	width:100px;
+}

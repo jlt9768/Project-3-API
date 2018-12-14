@@ -29,8 +29,10 @@
                     <div v-for="locations in user">
                         <div v-for="location in locations">
                             <li><b>{{location.name}}</b></li>
-                            <li>{{location.latitude}}</li>
-                            <li>{{location.longitude}}</li>
+							<ul>
+                            <li>Lat:{{location.latitude}}</li>
+                            <li>Lon:{{location.longitude}}</li>
+							</ul>
                         </div>
                     </div>
                 </ul>
