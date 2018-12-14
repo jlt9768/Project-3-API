@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Firebase Admin</title>
+        <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyC-vdML3SsiRpQkiLebV5SFJy2GnWxrz54",
+                authDomain: "weather-map-ede48.firebaseapp.com",
+                databaseURL: "https://weather-map-ede48.firebaseio.com",
+                projectId: "weather-map-ede48",
+                storageBucket: "",
+                messagingSenderId: "108524369837"
+            };
+            firebase.initializeApp(config);
+        </script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+		<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    </head>
+    <body>
+        <div id="app">	
+            <h1>Weather Map Firebase Data</h1>
+            <div v-for="(user, key) in users">
+                <h3>{{key}}</h3>
+                <ul>
+                    <div v-for="locations in user">
+                        <div v-for="location in locations">
+                            <li><b>{{location.name}}</b></li>
+                            <li>{{location.latitude}}</li>
+                            <li>{{location.longitude}}</li>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    users: []
+                },
+                methods:{
+                    dataChanged : function(data){
+                        app.users = data.val();
+                    },
+
+                    firebaseError : function(error){
+                        console.log(error);
+                    }
+                } // end methods
+            });
+            
+            firebase.database().ref().on("value", app.dataChanged, app.firebaseError);
+        </script>
+    </body>
+</html>

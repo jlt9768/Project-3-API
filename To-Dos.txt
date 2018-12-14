@@ -1,4 +1,4 @@
--Admin Page - Beau
+To-Do:
 
 Done:
 -Add functionality to remove all placed markers - James
@@ -6,3 +6,4 @@ Done:
 -Somewhat more responsive - James
 -Save pins - Beau
 -Generate map based on saved pins - Beau
+-Admin Page - Beau
