@@ -37,6 +37,7 @@
 				});
 				this.searchByClick();
 			},
+			//Adds a marker at the given city
 			addMarker(latitude, longitude, title, contentText){
 				let position = {lat:latitude, lng:longitude};
 				let marker = new google.maps.Marker({position: position, map: app.map, title: title} );
@@ -52,10 +53,6 @@
 				});
 				marker.infowindow.open(app.map, marker);
 				app.markers.push(marker);
-			},
-			makeInfoWindow(position, msg){
-				if(app.infowindow) app.infowindow.close();		
-				app.infowindow = new google.maps.InfoWindow({map: app.map, position: position, content: "<b>" + msg + "<b>" });
 			},
 			//Searches the OpenWeatherMap api for the city that first matches the name that was input
 			search(){
@@ -91,8 +88,8 @@
 					this.build(json);
 				})
 			},
+			//Gets the forecast at the designated city
 			forecast(){
-				//if (! this.term.trim()) return;
 				fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + this.city + "&units=imperial&appid=575bcc8891dfe93ad254039711d54a69")
 				.then(response => {
 					if(!response.ok){
@@ -108,6 +105,8 @@
 					
 				})
 			},
+			//Centers the map around the city
+			//Sets up the marker content for the marker at the given city
 			build(json){
 					this.json = json;
 					app.map.setCenter(new google.maps.LatLng(this.json.coord.lat, this.json.coord.lon));

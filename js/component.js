@@ -1,4 +1,5 @@
 Vue.component('forecast-item',{
+	//The single forecast
 	props: ['f'],
 	template: 
 	
